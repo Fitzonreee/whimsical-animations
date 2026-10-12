@@ -27,14 +27,14 @@
 .section-click-interactions {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 1.6rem;
 
   article {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-block: 10rem;
     background: hsl(210deg 15% 6%);
     border-radius: 1rem;
+    aspect-ratio: 1 / 1;
   }
 }

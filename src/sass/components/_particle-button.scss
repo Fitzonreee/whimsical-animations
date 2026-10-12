@@ -12,6 +12,9 @@
     display: block;
     width: 3rem;
     height: 3rem;
+    path {
+      stroke: var(--red);
+    }
   }
 
   path {
@@ -20,9 +23,6 @@
 
   &:hover {
     background: hsl(0deg 0% 100% / 0.1);
-    path {
-      stroke: var(--red);
-    }
   }
 
   &.liked {
