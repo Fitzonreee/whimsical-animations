@@ -8,35 +8,39 @@ export function setupGooglyEyes() {
 
   console.log("GooglyEyes has entered the chat");
 
-  const eye = document.querySelector('.eye');
-  const pupil = document.querySelector('.pupil');
+  const eyes = document.querySelectorAll('.eye');
+  const pupils = document.querySelectorAll('.pupil');
 
   window.addEventListener('pointermove', (event) => {
     if (checkPrefersReducedMotion()) {
       return;
     }
 
-    const bb = eye.getBoundingClientRect();
+    eyes.forEach((eye, index) => {
+      const bb = eye.getBoundingClientRect();
 
-    const centerX = bb.left + bb.width / 2;
-    const centerY = bb.top + bb.height / 2;
+      const centerX = bb.left + bb.width / 2;
+      const centerY = bb.top + bb.height / 2;
 
-    const relativeX = event.clientX - centerX;
-    const relativeY = event.clientY - centerY;
+      const relativeX = event.clientX - centerX;
+      const relativeY = event.clientY - centerY;
 
-    const [angle, distance] = convertCartesianToPolar(
-      relativeX,
-      relativeY
-    );
+      const [angle, distance] = convertCartesianToPolar(
+        relativeX,
+        relativeY
+      );
 
-    const modifiedDistance = clamp(distance * 0.1, -15, 15);
+      const modifiedDistance = clamp(distance * 0.1, -15, 15);
 
-    const [x, y] = convertPolarToCartesian(
-      angle,
-      modifiedDistance
-    );
+      const [x, y] = convertPolarToCartesian(
+        angle,
+        modifiedDistance
+      );
 
-    pupil.style.transform = `translate(${x}px, ${y}px)`;
+      pupils[index].style.transform = `translate(${x}px, ${y}px)`;
+    })
+
+
   });
 
   function checkPrefersReducedMotion() {
