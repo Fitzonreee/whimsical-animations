@@ -15,9 +15,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 4rem 1rem;
+}
+
+.section-click-interactions {
   display: grid;
-  place-content: center;
-  height: 100vh;
-  background: hsl(210deg 15% 6%);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+
+  article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 10rem;
+    background: hsl(210deg 15% 6%);
+    border-radius: 1rem;
+  }
 }

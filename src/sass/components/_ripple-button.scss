@@ -1,0 +1,54 @@
+  @keyframes fadeToTransparent {
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes grow {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  .ripple-button {
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 2.6rem;
+    border: none;
+    border-radius: 0.4rem;
+    background: hsl(250deg 60% 40%);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 200ms ease-in-out;
+
+    &:hover {
+      background: hsl(248deg 50% 45%);
+    }
+  }
+
+  .ripple {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: white;
+    opacity: 0.15;
+    border-radius: 50%;
+    translate: -50% -50%;
+    pointer-events: none;
+    /*
+      Separating the fade animation
+      from the transforms creates a nicer result. 
+      
+      In this case, the ripple takes
+      400ms to grow and 400ms to fade away, but the fade
+      animation is delayed by 200ms.
+    */
+    animation:
+      grow 400ms forwards cubic-bezier(0.4, 0.4, 0, 1),
+      fadeToTransparent 400ms 200ms forwards;
+  }

@@ -7,23 +7,41 @@
     <title>Animatio</title>
   </head>
   <body>
-    <div id="app"></div>
-    <button class="particle-button">
-      <span class="pop-circle"></span>
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M3.68546 5.43796C8.61936 1.29159 11.8685 7.4309 12.0406 7.4309C12.2126 7.43091 15.4617 1.29159 20.3956 5.43796C26.8941 10.8991 13.5 21.8215 12.0406 21.8215C10.5811 21.8215 -2.81297 10.8991 3.68546 5.43796Z"
-          stroke="white"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-      </svg>
-      <span class="visually-hidden">Like this post</span>
-    </button>
+    <div class="container">
+      
+      <!-- <section class="section section-intro">
+        <h1>Whimsical Animations</h1>
+        <p>A collection of fun, whimsical animations built with HTML, CSS, and JavaScript.</p>
+      </section> -->
+
+      <section class="section section-click-interactions">
+        <article>
+          <button class="particle-button">
+            <span class="pop-circle"></span>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M3.68546 5.43796C8.61936 1.29159 11.8685 7.4309 12.0406 7.4309C12.2126 7.43091 15.4617 1.29159 20.3956 5.43796C26.8941 10.8991 13.5 21.8215 12.0406 21.8215C10.5811 21.8215 -2.81297 10.8991 3.68546 5.43796Z"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            <span class="visually-hidden">Like this post</span>
+          </button>
+        </article>
+
+        <article>
+          <button class="ripple-button" data-ripple="true">Ripple Button</button>
+        </article>
+      
+      </section>
+
+    </div>
+
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>
