@@ -1,3 +1,5 @@
+// Break this up into individual files
+
 export function range(max) {
   return Array.from({ length: max }, (_, i) => i);
 }
@@ -7,6 +9,7 @@ export function randomNumber(min, max) {
 }
 
 export const convertDegreesToRadians = (angle) => (angle * Math.PI) / 180;
+export const convertRadiansToDegrees = (angle) => (angle * 180) / Math.PI;
 
 export const convertPolarToCartesian = (angle, distance) => {
   const angleInRadians = convertDegreesToRadians(angle);
@@ -16,6 +19,18 @@ export const convertPolarToCartesian = (angle, distance) => {
   
   return [ x, y ];
 }
+
+export const convertCartesianToPolar = (x, y) => {
+  let angle = convertRadiansToDegrees(Math.atan2(y, x));
+  
+  if (angle < 0) {
+    angle += 360;
+  }
+  
+  const distance = Math.sqrt(x ** 2 + y ** 2);
+  
+  return [angle, distance];
+};
 
 export const clamp = (
   value,
