@@ -1,3 +1,5 @@
+// Break this up into individual files
+
 export function range(max) {
   return Array.from({ length: max }, (_, i) => i);
 }
@@ -7,6 +9,7 @@ export function randomNumber(min, max) {
 }
 
 export const convertDegreesToRadians = (angle) => (angle * Math.PI) / 180;
+export const convertRadiansToDegrees = (angle) => (angle * 180) / Math.PI;
 
 export const convertPolarToCartesian = (angle, distance) => {
   const angleInRadians = convertDegreesToRadians(angle);
@@ -16,6 +19,18 @@ export const convertPolarToCartesian = (angle, distance) => {
   
   return [ x, y ];
 }
+
+export const convertCartesianToPolar = (x, y) => {
+  let angle = convertRadiansToDegrees(Math.atan2(y, x));
+  
+  if (angle < 0) {
+    angle += 360;
+  }
+  
+  const distance = Math.sqrt(x ** 2 + y ** 2);
+  
+  return [angle, distance];
+};
 
 export const clamp = (
   value,
@@ -62,6 +77,13 @@ export const clampedNormalize = (
     newScaleMax
   );
 };
+
+export const getDistanceBetweenPoints = (p1, p2) => {
+  const deltaX = p1.x - p2.x;
+  const deltaY = p1.y - p2.y;
+
+  return Math.sqrt(deltaX ** 2 + deltaY ** 2);
+}
 
 // In addition to _linear_ interpolation,
 // sometimes want to use _exponential_ interpolation, 
