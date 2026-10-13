@@ -78,6 +78,13 @@ export const clampedNormalize = (
   );
 };
 
+export const getDistanceBetweenPoints = (p1, p2) => {
+  const deltaX = p1.x - p2.x;
+  const deltaY = p1.y - p2.y;
+
+  return Math.sqrt(deltaX ** 2 + deltaY ** 2);
+}
+
 // In addition to _linear_ interpolation,
 // sometimes want to use _exponential_ interpolation, 
 // where the input is mapped onto a curved line rather than a straight one. 
